@@ -70,3 +70,38 @@ while top<=bottom and left<=right:
     left+=1
 OUTPUT:
 1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10 
+
+CHARECTER MATRIX:
+n=int(input("enter the size:"))
+matrix=[[' ']*n for _ in range(n)]
+top,left=0,0
+right,bottom=n-1,n-1
+num=0
+while top<=bottom and left<=right:
+    for i in range(left,right+1):
+        matrix[top][i]=chr(65 + num % 26)
+        num+=1
+    top+=1
+    for i in range(top,bottom+1):
+        matrix[i][right]=chr(65 + num % 26)
+        num+=1
+    right-=1
+    for i in range(right,left-1,-1):
+        matrix[bottom][i]=chr(65 + num % 26)
+        num+=1
+    bottom-=1
+    for i in range(bottom,top-1,-1):
+        matrix[i][left]=chr(65 + num % 26)
+        num+=1
+    left+=1
+for row in matrix:
+    for val in row:
+        print(f"{val:3}",end=' ')
+    print()
+OUTPUT:
+enter the size: 5
+A   B   C   D   E   
+P   Q   R   S   F   
+O   X   Y   T   G   
+N   W   V   U   H   
+M   L   K   J   I   
