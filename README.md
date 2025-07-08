@@ -49,3 +49,24 @@ enter the size: 9
  15  24  25  20   7 
  14  23  22  21   8 
  13  12  11  10   9 
+TRAVERSAL:
+matrix=[[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+row=len(matrix)
+cols=len(matrix[0])
+top,left=0,0
+right,bottom=cols-1,row-1
+while top<=bottom and left<=right:
+    for i in range(left,right+1):
+        print(matrix[top][i],end=' ')
+    top+=1
+    for i in range(top,bottom+1):
+        print(matrix[i][right],end=' ')
+    right-=1
+    for i in range(right,left-1,-1):
+        print(matrix[bottom][i],end=' ')
+    bottom-=1
+    for i in range(bottom,top-1,-1):
+        print(matrix[i][left],end=' ')
+    left+=1
+OUTPUT:
+1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10 
